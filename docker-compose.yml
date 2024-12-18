@@ -1,0 +1,44 @@
+#Docker compose for Ruby v3.3.6, Rails v8, Node v16.13.0, Yarn v1.22.17, PostgreSQL v14.1, and Redis v7.0.0
+
+version: '3.3'
+
+services:
+  postgres:
+    image: postgres:14.1
+    env_file:
+      - .env
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7.0.0
+    ports:
+      - "6379:6379"
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails server -p 3000 -b 0.0.0.0"
+    depends_on:
+      - postgres
+      - redis
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    stdin_open: true
+
+volumes:
+  postgres:
+    driver: local
+
+
