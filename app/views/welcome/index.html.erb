@@ -1,0 +1,15 @@
+<h1>
+  Hola Mundo
+</h1>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const button = document.querySelector('button');
+
+    button.addEventListener('click', function() {
+      alert('You clicked the button!');
+    });
+  });
+</script>
+
+<%= button_to 'logout', logout_path, method: :delete, class: 'btn btn-danger' %>

@@ -6,9 +6,9 @@ default: &default
 
 development:
   <<: *default
-  database: myrails_development
+  database: postgres
   username: tute
-  password: ubemeiQuie7zie3nei8e
+  password: tute
   host: localhost
   port: 5432
 
@@ -16,7 +16,7 @@ test:
   <<: *default
   database: myrails_test
   username: tute
-  password: ubemeiQuie7zie3nei8e
+  password: tute
   host: localhost
   port: 5432
 
@@ -24,8 +24,8 @@ production:
   primary: &primary_production
     <<: *default
     database: myrails_production
-    username: myrails
-    password: <%= ENV["MYRAILS_DATABASE_PASSWORD"] %>
+    username: tute
+    password: tute
   cache:
     <<: *primary_production
     database: myrails_production_cache

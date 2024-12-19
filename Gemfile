@@ -5,7 +5,6 @@ ruby '3.3.6'
 gem 'rails', '~> 8.0.0'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 6.0'
-gem 'sass-rails', '>= 6'
 gem "importmap-rails"
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
@@ -29,6 +28,8 @@ group :test do
   gem 'webdrivers'
 end
 
+gem 'sprockets', '>= 0', require: false
+
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # Use Active Storage variant
@@ -42,13 +43,7 @@ gem 'redis', '~> 4.0'
 
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-# Use Rack Session Pool for server-sessions
-# gem 'rack-session_pool', '~> 2.0'
-
-# Use Active Storage for upload
-# gem 'image_processing', '~> 1.2'
-
+gem "timeliness", "~> 0.5.0"
+gem "mutex_m", "~> 0.1.0"
+gem "hotwire-rails"
+gem "tailwindcss-rails", "~> 3.0"

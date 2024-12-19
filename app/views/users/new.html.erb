@@ -1,0 +1,70 @@
+<h1>Sign Up</h1>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const fileInput = document.getElementById('user_profile_image');
+    const form = document.querySelector('form');
+
+    form.addEventListener('submit', function(event) {
+      const file = fileInput.files[0];
+      if (file && file.size > 2 * 1024 * 1024) { // 2 MB en bytes
+        event.preventDefault();
+        alert('The image file is too large. Please select an image smaller than 2 MB.');
+      }
+    });
+  });
+</script>
+
+<%= form_with model: @user, url: sign_up_path do |form| %>
+  <% if @user.errors.any? %>
+    <div class="error-messages">
+      <h2>There were errors with your submission:</h2>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :user_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email_address %>
+    <%= form.email_field :email_address, id: :user_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :username %>
+    <%= form.text_field :username, id: :user_username %>
+  </div>
+
+  <div class="field">
+    <%= form.label :birth_date %>
+    <%= form.date_field :birth_date, id: :user_birth_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :profile_image %>
+    <%= form.file_field :profile_image, id: :user_profile_image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password %>
+    <%= form.password_field :password, id: :user_password %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation, id: :user_password_confirmation %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Sign Up" %>
+  </div>
+<% end %>
+
+<%= link_to 'Already have an account? Log in', login_path %>
