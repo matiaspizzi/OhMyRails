@@ -176,7 +176,7 @@ GEM
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (3.1.8)
-    rack-mini-profiler (2.3.4)
+    rack-mini-profiler (3.3.1)
       rack (>= 1.2.0)
     rack-session (2.0.0)
       rack (>= 3.0.0)
@@ -308,7 +308,7 @@ DEPENDENCIES
   mutex_m (~> 0.1.0)
   pg (>= 0.18, < 2.0)
   puma (~> 6.0)
-  rack-mini-profiler (~> 2.0)
+  rack-mini-profiler (~> 3.3)
   rails (~> 8.0.0)
   redis (~> 4.0)
   selenium-webdriver
