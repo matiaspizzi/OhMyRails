@@ -39,7 +39,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 # gem 'rack-cors'
 
 # Use Redis adapter to run Action Cable in production
-gem 'redis', '~> 4.0'
+gem 'redis', '~> 5.3'
 
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
